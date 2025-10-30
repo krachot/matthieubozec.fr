@@ -36,7 +36,10 @@
   {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
   {% endblock %}
-  {% if app.environment == 'prod' -%}<script src="https://tinylytics.app/embed/1joFoX_Pp2-r9KHygu78.js" defer></script>{%- endif %}
+  {% if app.environment == 'prod' -%}
+    <script src="https://tinylytics.app/embed/1joFoX_Pp2-r9KHygu78/min.js?spa" defer></script>
+    <script>document.addEventListener("turbo:load", function() {if (window.tinylytics?.triggerUpdate) {window.tinylytics.triggerUpdate()}})</script>
+  {%- endif %}
 </head>
 <body class="flex min-h-screen flex-col justify-start bg-white">
 {% block jsonld '' %}
