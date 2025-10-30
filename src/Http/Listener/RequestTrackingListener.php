@@ -43,6 +43,13 @@ class RequestTrackingListener
             return;
         }
 
+        $response = $event->getResponse();
+
+        // Ignore les 4xx et 5xx (ex: 404, 500)
+        if ($response->isClientError() || $response->isServerError()) {
+            return;
+        }
+
         $this->visitTracker->track($this->requestToTrack);
     }
 
