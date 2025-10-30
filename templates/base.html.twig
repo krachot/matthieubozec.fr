@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{%- set default_url = app.request.attributes.get('_route') ? (url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params'))) : url('page', {'permalink': null}) -%}
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
+  <meta name="author" content="Matthieu Bozec">
+  <title>{% block title %}{% endblock %}</title>
+  <meta name="description" content="{% block meta_description '' %}">
+  <link rel="canonical" href="{% block meta_canonical default_url %}" />
+
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Matthieu Bozec" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="me" href="https://piaille.fr/@krachot" />
+  <meta name="theme-color" content="#272343">
+  <meta property="og:image" content="{% block og_image absolute_url(asset('build/images/og/index.jpg')) %}">
+  <meta property="og:title" content="{{ block('title') }}">
+  <meta property="og:description" content="{{ block('meta_description') }}">
+  <meta property="og:type" content="{% block og_type 'website' %}">
+  <meta property="og:url" content="{{ block('meta_canonical') }}">
+  {% block head '' %}
+
+  {% block preload_fonts %}
+    <link rel="preload" href="{{ asset('build/fonts/inter-latin-wght-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ asset('build/fonts/plus-jakarta-sans-latin-wght-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
+  {% endblock %}
+
+  {% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+  {% endblock %}
+
+  {% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+  {% endblock %}
+</head>
+<body class="flex min-h-screen flex-col justify-start bg-white">
+{% block jsonld '' %}
+{% block body '' %}
+</body>
+</html>

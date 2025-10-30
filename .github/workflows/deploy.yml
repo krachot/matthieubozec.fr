@@ -1,0 +1,28 @@
+name: Deploy site
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '8.4'
+                  tools: composer
+
+            - name: Deploy with Deployer Action
+              uses: deployphp/action@v1
+              with:
+                  dep: 'deploy www'
+                  private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+                  known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+                  deployer-version: '7.0.0'

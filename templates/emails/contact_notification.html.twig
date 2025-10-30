@@ -1,0 +1,17 @@
+{% extends '@email/default/notification/body.html.twig' %}
+
+{% block content %}
+  <p>
+    Nouveau message via le formulaire de contact du site.
+  </p>
+  <p>
+    Auteur: {{ message.name }}<br />
+    Email: {{ message.email }}<br />
+    Prestation: {{ message.prestationType.label() }}<br />
+    Budget: {{ message.budget.label() }}<br />
+  </p>
+
+  <p>
+    {{ message.message|striptags|nl2br|raw }}
+  </p>
+{% endblock %}

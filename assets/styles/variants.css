@@ -1,0 +1,7 @@
+@custom-variant with-cta {
+    body:has(#cta) & {
+        @slot;
+    }
+}
+
+@custom-variant aria-current (&[aria-current="page"]);

@@ -1,0 +1,58 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ page.get('title', '') }}{% endblock %}
+{% block meta_description page.get('seo.description', '') %}
+{% block meta_canonical url('page', {'permalink': page.get('permalink')}) %}
+
+{% block og_image absolute_url(asset('build/images/og/' ~ (page.key()|replace({'_': '-'})) ~ '.jpg')) %}
+
+{% block jsonld %}
+  {% if page.get('faqs')|default(null) %}
+    {% set jsonld = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": page.get('faqs')|map(faq => {
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      })
+    } %}
+
+    <script type="application/ld+json">{{ jsonld|json_encode(constant('JSON_UNESCAPED_UNICODE'))|raw }}</script>
+  {% endif %}
+
+  {% if page|default(null) %}
+    {% set breadcrumbList = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      'itemListElement': []
+    } %}
+
+  {% for node in breadcrumb(page.key()) %}
+    {% set breadcrumbList = breadcrumbList|merge({
+      'itemListElement': breadcrumbList.itemListElement|merge([{
+      '@type': 'ListItem',
+      'position': loop.index,
+      'name': node.title,
+      'item': node.url ?? app.request.uri
+      }])
+      }) %}
+      {% endfor %}
+
+      <script type="application/ld+json">{{ breadcrumbList|json_encode(constant('JSON_UNESCAPED_UNICODE'))|raw }}</script>
+  {% endif %}
+{% endblock %}
+
+{% block body %}
+  {{ include('partials/_skip_links.html.twig') }}
+  {{ include('partials/_header.html.twig') }}
+  {{ include('partials/_breadcrumb.html.twig') }}
+  <main id="main" role="main" class="grow">
+    {% block content '' %}
+  </main>
+  {{ include('partials/_footer.html.twig') }}
+{% endblock %}
+

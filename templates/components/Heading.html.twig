@@ -1,0 +1,19 @@
+{% props level = 0, size = 'xl' %}
+
+{% set headings = ['h1', 'h2', 'h3'] %}
+{% set tag = headings[level - 1] ?? 'p' %}
+
+{%- set style = html_cva(
+  base: 'text-balance',
+  variants: {
+    size: {
+      sm: 'text-step-1 font-bold text-headline',
+      md: 'text-step-3 font-display font-black text-headline',
+      lg: 'text-step-5 font-display font-black',
+    }
+  }
+) -%}
+
+<{{ tag }} class="{{ style.apply({size: size}, attributes.render('class')) }}" {{ attributes }}>
+  {%- block content '' -%}
+</{{ tag }}>

@@ -1,0 +1,6 @@
+<nav class="{{ attributes.defaults({'class': '[&>ul]:flex [&>ul]:justify-around [&>ul]:h-16 [&>ul]:md:justify-center [&>ul]:md:h-auto [&>ul]flex-row [&>ul]:items-center [&>ul]:gap-3 [&>ul]:md:gap-10 [&>ul]:font-semibold'}).render('class')|tailwind_merge }}"
+  {{ attributes.defaults({}).without('class') }}>
+  <ul>
+    {% block content '' %}
+  </ul>
+</nav>

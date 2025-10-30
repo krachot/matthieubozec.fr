@@ -1,0 +1,91 @@
+---
+layout: 'default'
+title: 'Développeur web Symfony, WordPress, Laravel & React à Poitiers – Matthieu Bozec'
+permalink: ''
+featuredImage: 'avatar-me-4.png'
+og:
+  title: 'Développeur web Symfony, WordPress, Laravel & React à Poitiers'
+seo:
+  description: 'Développeur web à Poitiers, spécialisé en Symfony, WordPress, React et Laravel. J’accompagne entreprises et startups dans la création de sites et applications web performants.'
+navigation:
+  label: Accueil
+  order: 1
+  icon: "lucide:home"
+faqs:
+  - question: 'Travaillez-vous uniquement avec des clients à Poitiers ?'
+    answer: 'Non. Je collabore avec des entreprises locales et à distance partout en France. Basé près de Poitiers, je reste disponible pour des rendez-vous physiques dans la Vienne. Toutes les prestations sont réalisées au sein de 4h04, l’entreprise dont je suis co-gérant.'
+  - question: 'Pouvez-vous reprendre un site ou une application existante ?'
+    answer: 'Oui. J’interviens régulièrement sur des projets Symfony, WordPress, Laravel ou React pour les reprendre, les maintenir ou les faire évoluer. Chaque intervention est encadrée par 4h04, afin d’assurer un suivi rigoureux et une facturation claire.'
+  - question: 'Quels types de projets réalisez-vous ?'
+    answer: 'Des applications métiers, des sites vitrines, des boutiques e-commerce et des APIs sur mesure. Chaque projet est conçu pour être performant, accessible et durable, avec la qualité de service de 4h04 en soutien.'
+  - question: 'Quels sont vos délais habituels ?'
+    answer: 'Tout dépend de la taille et de la complexité du projet : un site vitrine peut être livré en quelques semaines, une application sur mesure en plusieurs mois. L’étude et la planification sont toujours gérées via 4h04, pour un accompagnement complet.'
+---
+
+{% block content %}
+  <twig:Hero class="py-6 md:py-14" title="Je construis des projets web solides, accessibles et faits pour durer." imagePath="{{ page.get('featuredImage') }}">
+    <p class="font-display text-step-2 text-balance">
+      Expertise <strong>Symfony</strong>, <strong>WordPress</strong>, <strong>Laravel</strong> et
+      <strong>React</strong>.
+    </p>
+    <p class="font-sans text-step-0 text-black text-balance">
+      Basé près de <strong>Poitiers</strong>, j’accompagne <strong>entreprises</strong> et <strong>organisations</strong> avec une approche claire,
+      pragmatique et orientée résultats.
+    </p>
+  </twig:Hero>
+
+  <twig:Services title="Services">
+    <p class="max-w-2xl mx-auto leading-tight">
+      J’accompagne mes clients sur l’ensemble du cycle de vie de leurs projets web :
+      conception, développement, intégration, maintenance et accompagnement technique.
+    </p>
+  </twig:Services>
+
+  <section class="bg-white mt-6 py-12" aria-labelledby="aboutTitle">
+    <div class="wrapper space-y-12">
+
+      <twig:Heading level="2" size="md" id="aboutTitle" class="text-center"><a href="{{ page_path('about') }}">Développeur web expérimenté à Poitiers</a></twig:Heading>
+
+      <div class="auto-grid" style="--auto-grid-max-columns: 2; --auto-grid-min-size: 18rem; --auto-grid-gap: 2rem;">
+        <div class="relative space-y-4 [&>p:not(:has(a))]:leading-relaxed">
+          <twig:Heading level="3" size="sm">À propos</twig:Heading>
+          <p>Fort de <strong>20 ans d’expérience</strong> en développement web, j’accompagne des entreprises et organisations de toutes tailles dans la création d’<strong>applications web</strong> et de <strong>sites internet</strong> performants.</p>
+          <p>Je conçois des projets <strong>fiables, accessibles et évolutifs</strong>, avec une approche rigoureuse centrée sur la qualité du code, la performance et la pérennité.</p>
+          <p>Toutes mes prestations sont réalisées <strong>au sein de 4h04</strong>, l’entreprise que je co-dirige à Poitiers, afin d’assurer un suivi professionnel et la possibilité de mobiliser une équipe technique complète lorsque nécessaire.</p>
+          <p class="mt-6">
+            <a href="{{ page_path('about') }}" class="text-black font-medium underline hover:no-underline">Découvrir mon parcours →</a>
+          </p>
+        </div>
+
+        <div class="relative space-y-4 [&>p:not(:has(a))]:leading-relaxed">
+          <twig:Heading level="3" size="sm">Zone d’intervention</twig:Heading>
+          <p>Basé à <strong>Nouaillé-Maupertuis</strong>, près de <strong>Poitiers</strong>, j’interviens dans toute la <strong>Vienne</strong> et plus largement en <strong>Poitou-Charentes</strong>.</p>
+          <p>J’accompagne également des clients à distance dans toute la France, avec une organisation de travail fluide et des outils de collaboration modernes.</p>
+          <p>Que votre projet soit local ou à distance, je reste votre interlocuteur technique privilégié, disponible et réactif.</p>
+        </div>
+      </div>
+
+      <twig:TechStack title="Technologies et outils">
+        <p class="leading-relaxed max-w-prose mx-auto text-center">
+          Je travaille avec un ensemble de frameworks et d’outils modernes, sélectionnés pour leur <strong>stabilité</strong>, leur <strong>performance</strong> et la <strong>richesse de leur écosystème</strong>.
+        </p>
+      </twig:TechStack>
+    </div>
+  </section>
+
+  <section class="bg-white py-12 relative" aria-labelledby="faqTitle">
+    <div class="wrapper max-w-3xl">
+
+      <twig:Heading level="2" size="md" id="faqTitle" class="text-center mb-6">Questions fréquentes</twig:Heading>
+
+      {% for faq in page.get('faqs') %}
+        <twig:Faq question="{{ faq.question }}" name="faq">{{ faq.answer }}</twig:Faq>
+      {% endfor %}
+    </div>
+  </section>
+
+  <twig:Cta title="Vous avez un projet web à développer ?">
+    Je conçois des applications et des sites sur mesure, <strong>fiables et évolutifs</strong>,
+    avec <strong>Symfony</strong>, <strong>WordPress</strong>, <strong>Laravel</strong> ou <strong>React</strong>.
+  </twig:Cta>
+{% endblock %}

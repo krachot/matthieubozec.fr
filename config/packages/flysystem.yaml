@@ -1,0 +1,6 @@
+flysystem:
+    storages:
+        image.storage:
+            adapter: 'local'
+            options:
+                directory: '%kernel.project_dir%/assets/images'

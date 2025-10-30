@@ -1,0 +1,7 @@
+{% props logo = 'logo' %}
+
+<a class="{{ attributes.defaults({'class': 'flex items-center gap-2 font-display text-step-0 leading-[1lh] font-black  text-headline uppercase'}).render('class') }}"
+   {{ attributes.defaults({'href': page_path('index')}).without('class') }}>
+  <twig:ux:icon :name="logo" fill="none" class="size-5" />
+  Matthieu Bozec <span class="sr-only">retour à l'accueil</span>
+</a>

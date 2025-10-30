@@ -1,0 +1,15 @@
+{%  props title = '' %}
+<section id="cta" class="wrapper py-24 relative z-1" aria-labelledby="ctaTitle">
+  <div class="p-12 px-6 rounded-md bg-white border-2 border-headline/30 outline-0 outline-headline outline-offset-0 hover:border-headline hover:outline-1 transition-all hover:-translate-y-[5px] space-y-4 text-center shadow-md">
+    <h2 id="ctaTitle" class="text-step-3 font-black font-display mb-6 text-headline text-balance max-w-prose mx-auto">
+      {{ title|raw }}
+    </h2>
+    <p class="text-step-0 text-balance max-w-prose mx-auto">
+      {% block content '' %}
+    </p>
+    <twig:Button as="a" size="lg" variant="highlight" href="{{ path('contact') }}" class="mt-5">
+      Discutons de votre projet
+      <twig:ux:icon name="lucide:chevron-right" class="size-6" />
+    </twig:Button>
+  </div>
+</section>

@@ -1,0 +1,68 @@
+.drawer {
+    position: fixed;
+    inset: auto 0 0 0;
+    width: 100vw;
+    max-height: 90dvh;
+    max-width: none;
+    margin: 0;
+    padding-block: calc(var(--spacing) * 4) calc(var(--spacing) * 16);
+    padding-inline: calc(var(--spacing) * 4);
+    border: none;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    outline: none;
+
+    display: flex;
+    flex-direction: column;
+
+    transform: translateY(1000%);
+    opacity: 0;
+
+    transition:
+        transform .35s ease,
+        opacity   .25s ease;
+}
+
+.drawer[open] {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+@starting-style {
+    .drawer[open] {
+        transform: translateY(1000%);
+        opacity: 0;
+    }
+}
+
+/* Backdrop */
+.drawer::backdrop {
+    background-color: rgb(25 35 41 / 0%);
+    transition: background-color .35s ease;
+}
+.drawer[open]::backdrop {
+    background-color: rgb(25 35 41 / 30%);
+}
+@starting-style {
+    .drawer[open]::backdrop {
+        background-color: rgb(25 35 41 / 0%);
+    }
+}
+
+@supports (transition-behavior: allow-discrete) {
+    .drawer {
+        /* On ajoute les transitions discrètes */
+        transition:
+            transform .35s ease,
+            opacity   .25s ease,
+            overlay   .35s allow-discrete,
+            display   .35s allow-discrete;
+        transition-behavior: allow-discrete;
+    }
+
+    .drawer::backdrop {
+        transition:
+            background-color .35s ease,
+            overlay          .35s allow-discrete;
+        transition-behavior: allow-discrete;
+    }
+}

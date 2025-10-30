@@ -1,0 +1,27 @@
+<header
+  role="banner"
+  data-controller="header"
+  class="md:sticky top-0 z-50 bg-white md:bg-white/80 md:backdrop-blur-md md:transition-all duration-300 md:supports-[backdrop-filter]:bg-white/80 border-b border-b-transparent [&.is-sticky]:md:border-b-headline/20 [&.is-sticky]:md:shadow"
+>
+  <div class="wrapper">
+    <div class="relative flex h-14 md:h-20 items-center justify-center md:justify-between">
+      <twig:Logo />
+
+      <div class="fixed inset-x-4 bottom-2 z-50 md:contents
+         bg-white/70 backdrop-blur-lg supports-[backdrop-filter]:bg-white/70
+         border border-white/30 shadow-lg
+         rounded-2xl px-2 py-0
+         md:bg-transparent md:border-0 md:shadow-none md:rounded-none md:px-0 md:py-0
+         transition-all duration-300">
+        <twig:Menu id="menu" aria-label="Menu principal">
+          {% for node in navigation %}
+            <twig:Menu:MenuItem icon="{{ node.icon|default(null) }}" link="{{ node.url }}">{{ node.title }}</twig:Menu:MenuItem>
+          {% endfor %}
+          <twig:Menu:MenuItem icon="lucide:mail" link="{{  path('contact') }}" class="md:hidden">Contact</twig:Menu:MenuItem>
+        </twig:Menu>
+
+        <twig:Button as="a" size="default" class="hidden md:inline-flex max-md:w-full max-md:mt-8" variant="outline" href="{{ path('contact') }}">Contact</twig:Button>
+      </div>
+    </div>
+  </div>
+</header>

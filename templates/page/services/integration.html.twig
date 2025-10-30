@@ -1,0 +1,233 @@
+---
+layout: 'default'
+title: 'Intégrateur web & accessibilité à Poitiers (Vienne 86) – Intégration HTML, CSS, RGAA/WCAG'
+permalink: 'services/integration-accessibilite-poitiers'
+og:
+  title: 'Intégrateur web & accessibilité à Poitiers'
+navigation:
+  label: Intégration web & accessibilité
+  parent: services
+  order: 3
+seo:
+  description: 'Intégrateur web à Poitiers (86). Intégrations HTML/CSS/JS performantes, accessibles et conformes au RGAA/WCAG. Audit, conception inclusive et optimisation front-end – via 4h04, en Vienne et Poitou-Charentes.'
+faqs:
+  - question: 'Travaillez-vous à partir de maquettes existantes ?'
+    answer: 'Oui, je transforme vos maquettes (Figma, Illustrator, XD) en code propre, performant et conforme aux standards d’accessibilité.'
+  - question: 'Rendez-vous les interfaces conformes au RGAA ?'
+    answer: 'Oui, j’effectue des corrections pour atteindre le RGAA niveau AA et les standards WCAG, avec tests clavier et lecteurs d’écran.'
+  - question: 'Pouvez-vous collaborer avec une agence ou un autre développeur ?'
+    answer: 'Oui, j’interviens en collaboration directe avec les équipes design et backend, avec livrables documentés et accompagnement technique via 4h04.'
+  - question: 'Garantissez-vous les performances (Core Web Vitals) ?'
+    answer: 'Oui, je mesure et optimise les performances (LCP, CLS, INP) avec Lighthouse et WebPageTest pour garantir rapidité et qualité de rendu.'
+  - question: 'Intervenez-vous uniquement à Poitiers ?'
+    answer: 'Je suis basé à Nouaillé-Maupertuis, près de Poitiers, et j’interviens dans toute la Vienne, le Poitou-Charentes et la Nouvelle-Aquitaine, en présentiel ou à distance.'
+---
+
+{% block content %}
+
+  <twig:Hero title="Intégration web & accessibilité à Poitiers (Vienne, 86)">
+    <p class="font-display text-step-2 text-balance">
+      Intégrations <strong>HTML/CSS/JS</strong> précises, performantes et conformes aux standards, avec un soin particulier porté à l’<strong>accessibilité (RGAA/WCAG)</strong>.
+    </p>
+    <p class="font-sans text-step-0 text-black text-balance">
+      Basé à <strong>Nouaillé-Maupertuis</strong>, près de <strong>Poitiers</strong> dans la <strong>Vienne (86)</strong>, j’accompagne entreprises et organisations du <strong>Poitou-Charentes</strong> dans leurs projets web.
+    </p>
+  </twig:Hero>
+
+  <section class="py-16 bg-linear-to-b from-secondary to-white border-t border-t-headline/50"  aria-labelledby="qTitle">
+    <div class="wrapper">
+      <div class="text-center mb-12 space-y-4">
+        <twig:Heading level="2" size="md" id="qTitle">Du code propre, durable et maintenable</twig:Heading>
+        <p class="max-w-prose mx-auto">
+          Je privilégie une base <strong>simple et solide</strong> : sémantique claire, composants réutilisables, dettes limitées et performances mesurées.
+        </p>
+      </div>
+
+      <ul role="list" class="auto-grid" style="--auto-grid-max-columns: 3; --auto-grid-min-size: 18rem; --auto-grid-gap: 1rem;">
+        <twig:FeatureBox as="li" title="HTML sémantique" text="titres hiérarchisés, landmarks, textes alternatifs." />
+        <twig:FeatureBox as="li" title="CSS moderne" text="Tailwind, Sass, CSS variables, BEM/utility-first, design system." />
+        <twig:FeatureBox as="li" title="JS modulaire" text="comportements progressifs (Alpine, Stimulus, React si besoin)." />
+        <twig:FeatureBox as="li" title="Responsive" text="mobile-first, grilles fluides, images adaptatives." />
+        <twig:FeatureBox as="li" title="Compatibilité" text="navigateurs modernes & outils d’assistance." />
+        <twig:FeatureBox as="li" title="Performance" text="Core Web Vitals, lazy-load, minification & cache." />
+      </ul>
+    </div>
+  </section>
+
+  <section class="pt-16" aria-labelledby="a11yTitle">
+    <div class="wrapper">
+      <div class="text-center mb-12 space-y-4">
+        <twig:Heading level="2" size="md" id="a11yTitle">Accessibilité (RGAA / WCAG) intégrée par défaut</twig:Heading>
+        <p class="max-w-prose mx-auto">
+          L’accessibilité n’est pas un plugin, c’est une <strong>discipline</strong>. Je l’intègre dès la conception et je la vérifie en test tout au long du projet.
+        </p>
+      </div>
+
+      <div class="auto-grid" style="--auto-grid-max-columns: 2; --auto-grid-min-size: 18rem; --auto-grid-gap: 1rem;">
+        <twig:Card>
+          <twig:Heading level="3" size="sm">Mise en conformité après audit</twig:Heading>
+          <div class="prose space-y-3">
+            <p>
+              Collaboration avec des experts en accessibilité pour corriger les non-conformités identifiées : structure sémantique, contrastes, focus, navigation clavier… vers un <strong>RGAA niveau AA</strong>.
+            </p>
+          </div>
+        </twig:Card>
+
+        <twig:Card>
+          <twig:Heading level="3" size="sm">Conception inclusive</twig:Heading>
+          <div class="prose space-y-3">
+            <p>
+              Composants accessibles, aria roles, libellés cohérents, messages d’erreur, état de focus visible.
+            </p>
+            <p>
+              Objectif : <strong>utilisable par tous</strong>, sans compromis esthétique.
+            </p>
+          </div>
+        </twig:Card>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16" aria-labelledby="techTitle">
+    <div class="wrapper max-w-prose mx-auto">
+      <div class="text-center mb-12">
+        <twig:Heading level="2" size="md" id="techTitle">Outils & technologies</twig:Heading>
+      </div>
+
+      <twig:Card>
+        <div class="prose space-y-3">
+          <ul class="space-y-3 list-disc list-outside ps-[1.5ch]">
+            <li>HTML5 / Twig / Blade</li>
+            <li>Tailwind CSS / Sass / PostCSS</li>
+            <li>Alpine.js / Stimulus / React</li>
+            <li>CI/CD - checks perf & a11y en pipeline</li>
+            <li>Design tokens & DS documenté</li>
+          </ul>
+        </div>
+      </twig:Card>
+
+    </div>
+  </section>
+
+  <section class="py-16 bg-linear-to-b from-secondary to-white border-t border-t-headline/50" aria-labelledby="cTitle">
+    <div class="wrapper">
+      <div class="text-center mb-12 space-y-4">
+        <twig:Heading level="2" size="md" id="cTitle">Collaboration fluide avec design & backend</twig:Heading>
+        <p class="max-w-prose mx-auto">
+          Je transforme vos maquettes (Figma, Sketch, XD) en interfaces <strong>propres, cohérentes et accessibles</strong>,
+          prêtes à être intégrées dans vos applications <strong>Symfony</strong>, <strong>Laravel</strong>, <strong>WordPress</strong> ou <strong>React</strong>.<br />
+          Livrables clairs, documentation et hand-off soigné, <strong>via 4h04</strong>.
+        </p>
+      </div>
+
+      <div class="auto-grid" style="--auto-grid-max-columns: 2; --auto-grid-min-size: 18rem; --auto-grid-gap: 1rem;">
+        <twig:Card>
+          <twig:Heading level="3" size="sm">Design → Code</twig:Heading>
+          <div class="prose space-y-3">
+            <p>
+              Guidelines, tokens, composants, états, interactions, variantes & thèmes.
+            </p>
+          </div>
+        </twig:Card>
+
+        <twig:Card>
+          <twig:Heading level="3" size="sm">Code → Intégration</twig:Heading>
+          <div class="prose space-y-3">
+            <p>
+              Structure sémantique, hooks d’accessibilité, conventions & commentaires utiles.
+            </p>
+          </div>
+        </twig:Card>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-12 relative" aria-labelledby="faqTitle">
+    <div class="wrapper max-w-3xl">
+
+      <twig:Heading level="2" size="md" id="faqTitle" class="text-center mb-6">FAQ – Intégration web & accessibilité</twig:Heading>
+
+      {% for faq in page.get('faqs') %}
+        <twig:Faq question="{{ faq.question }}" name="faq">{{ faq.answer|raw }}</twig:Faq>
+      {% endfor %}
+    </div>
+  </section>
+
+  <twig:Cta title="Besoin d’une intégration accessible & performante ?">
+    Intégration soignée, audit RGAA/WCAG et performance mesurée
+  </twig:Cta>
+{% endblock %}
+
+{% block jsonld %}
+  {{ parent() }}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Intégration web & accessibilité – 4h04 / Matthieu Bozec",
+      "url": "{{ page_url('services_integration') }}",
+      "description": "Intégrateur web à Poitiers (Vienne 86). Intégrations HTML/CSS/JS performantes, accessibles et conformes au RGAA/WCAG. Audit, conception inclusive et optimisation front-end via 4h04.",
+      "image": "{{ absolute_url(asset('build/images/og/' ~ (page.key()|replace({'_': '-'})) ~ '.jpg')) }}",
+      "areaServed": [
+        "Poitiers",
+        "Vienne",
+        "Poitou-Charentes",
+        "Nouvelle-Aquitaine"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nouaillé-Maupertuis",
+        "addressRegion": "Vienne",
+        "postalCode": "86340",
+        "addressCountry": "FR"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "4h04",
+        "url": "https://4h04.com"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Prestations d’intégration web & accessibilité",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Intégration HTML/CSS/JS conforme aux standards"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mise en conformité RGAA / WCAG"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Conception inclusive et optimisation front-end"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Collaboration design & développement via 4h04"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Maintenance et évolutions techniques"
+            }
+          }
+        ]
+      }
+    }
+  </script>
+
+{% endblock %}

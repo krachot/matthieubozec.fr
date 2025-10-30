@@ -1,0 +1,42 @@
+liip_imagine:
+    driver: "gd"
+    data_loader: image_loader
+    cache: image_resolver
+    controller:
+        redirect_response_code: 301
+    default_filter_set_settings:
+        format: webp
+    resolvers:
+        image_resolver:
+            web_path:
+                web_root: "%kernel.project_dir%/public"
+                cache_prefix: "media/cache"
+
+    loaders:
+        image_loader:
+            flysystem:
+                filesystem_service: 'image.storage'
+    filter_sets:
+        cache: ~
+        image_380:
+            filters:
+                strip: ~
+                relative_resize:
+                    widen: 380
+            post_processors:
+                cwebp: { metadata: ['none'], q: 80 }
+        image_600:
+            filters:
+                strip: ~
+                relative_resize:
+                    widen: 600
+            post_processors:
+                cwebp: { metadata: ['none'], q: 80 }
+        image_1024:
+            filters:
+                strip: ~
+                relative_resize:
+                    widen: 1024
+            post_processors:
+                cwebp: { metadata: ['none'], q: 80 }
+

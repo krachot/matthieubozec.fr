@@ -1,0 +1,19 @@
+<form action="{{ path('contact') }}" method="post" class="space-y-6" novalidate>
+
+  {{ form_errors(form) }}
+
+  {{ form_row(form.name) }}
+  {{ form_row(form.nickname) }}
+  {{ form_row(form.email) }}
+  {{ form_row(form.prestationType) }}
+  {{ form_row(form.budget) }}
+  {{ form_row(form.message) }}
+
+  {{ form_row(form._token) }}
+
+  <twig:Button size="lg" type="submit">Envoyer ma demande</twig:Button>
+
+  <p class="text-sm text-headline/80 pt-2">
+    Toutes les demandes sont traitées dans un délai moyen de 24 à 48 h. Les prestations sont réalisées <strong>via 4h04</strong>.
+  </p>
+</form>

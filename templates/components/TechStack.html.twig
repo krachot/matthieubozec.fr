@@ -1,0 +1,30 @@
+{% props title = '' %}
+
+<div class="{{ attributes.defaults({'class': 'bg-linear-to-b from-secondary to-white rounded-md p-8 px-12 space-y-10'}).render('class')|tailwind_merge }}" {{ attributes.defaults({}).without('class') }}>
+
+  {% if title|default(null) %}
+    <div class="space-y-6">
+      <twig:Heading level="2" size="md" class="text-center" id="techStackTitle">{{ title|raw }}</twig:Heading>
+      {% block content '' %}
+    </div>
+  {% endif %}
+
+  <ul role="list" class="flex flex-wrap justify-center items-center gap-x-18 gap-y-12 [&>li]:flex [&>li]:items-center [&>li]:gap-3 [&>li_svg]:shrink-0 [&>li_svg]:size-10 [&>li_svg]:fill-current [&>li_span]:font-semibold">
+    <li>{{ ux_icon('simple-icons:symfony') }} <span class="sr-only md:not-sr-only">Symfony</span></li>
+    <li>{{ ux_icon('simple-icons:wordpress') }} <span class="sr-only md:not-sr-only">WordPress</span></li>
+    <li>{{ ux_icon('simple-icons:react') }} <span class="sr-only md:not-sr-only">React</span></li>
+    <li>{{ ux_icon('simple-icons:laravel') }} <span class="sr-only md:not-sr-only">Laravel</span></li>
+    <li>{{ ux_icon('simple-icons:prestashop') }} <span class="sr-only md:not-sr-only">Prestashop</span></li>
+    <li>{{ ux_icon('simple-icons:elasticsearch') }} <span class="sr-only md:not-sr-only">ElasticSearch</span></li>
+    <li>{{ ux_icon('simple-icons:php') }} <span class="sr-only md:not-sr-only">PHP</span></li>
+    <li>{{ ux_icon('simple-icons:javascript') }} <span class="sr-only md:not-sr-only">JavaScript</span></li>
+    <li>{{ ux_icon('simple-icons:typescript') }} <span class="sr-only md:not-sr-only">TypeScript</span></li>
+    <li>{{ ux_icon('simple-icons:html5') }} <span class="sr-only md:not-sr-only">HTML / CSS</span></li>
+    <li>{{ ux_icon('simple-icons:tailwindcss') }} <span class="sr-only md:not-sr-only">Tailwind</span></li>
+    <li>{{ ux_icon('simple-icons:mysql') }} <span class="sr-only md:not-sr-only">MySQL</span></li>
+    <li>{{ ux_icon('simple-icons:postgresql') }} <span class="sr-only md:not-sr-only">PostgreSQL</span></li>
+    <li>{{ ux_icon('simple-icons:redis') }} <span class="sr-only md:not-sr-only">Redis</span></li>
+    <li>{{ ux_icon('simple-icons:docker') }} <span class="sr-only md:not-sr-only">Docker</span></li>
+    <li>{{ ux_icon('simple-icons:github') }} <span class="sr-only md:not-sr-only">Github</span></li>
+  </ul>
+</div>

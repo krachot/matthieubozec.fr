@@ -1,0 +1,229 @@
+---
+layout: 'default'
+title: 'À propos de Matthieu Bozec – Développeur web à Poitiers (Vienne 86) & co-fondateur de 4h04'
+permalink: 'a-propos'
+og:
+  title: 'À propos - Développeur web à Poitiers'
+navigation:
+  label: 'À propos'
+  order: 3
+  icon: "lucide:info"
+seo:
+  description: 'Découvrez le parcours de Matthieu Bozec, développeur web full-stack à Poitiers (Vienne 86) et co-fondateur de 4h04. Expert en Symfony, WordPress et React, il conçoit des applications et sites web accessibles, performants et durables.'
+---
+
+{% block content %}
+  <twig:Hero title="À propos">
+    <p class="font-display text-step-2 text-balance">
+      Je suis <strong>Matthieu Bozec</strong>, <strong>développeur web full-stack</strong> et
+      <strong>co-fondateur de <a href="https://4h04.com">4h04</a></strong> à Poitiers.
+    </p>
+    <p class="font-sans text-step-0 text-black text-balance">
+      Depuis plus de 20 ans, je conçois des <strong>applications web robustes, accessibles et durables</strong>, en m’appuyant sur des outils éprouvés comme <strong>Symfony</strong>, <strong>WordPress</strong>, <strong>Laravel</strong> et <strong>React</strong>.
+    </p>
+  </twig:Hero>
+
+  <section class="pb-16" aria-labelledby="helloTitle">
+    <div class="wrapper">
+      <div class="mb-12 space-y-4">
+        <twig:Heading level="2" size="md" id="helloTitle" class="mb-6">Salut, je suis Matthieu 👋</twig:Heading>
+        <p>
+          Basé à <strong>Nouaillé-Maupertuis</strong>, à côté de <strong>Poitiers</strong>, je passe mes journées à concevoir des solutions web
+          <strong>efficaces et élégantes</strong>. J’aime créer des projets <strong>clairs, rapides et accessibles</strong>,
+          où chaque détail technique a du sens.
+        </p>
+        <p>
+          En dehors du code, je suis <strong>Lego addict</strong>, <strong>apprenti skateboarder</strong>, <strong>guitariste du dimanche</strong> et
+          <strong>amateur de jeux de société</strong>. Bref, j’aime construire — que ce soit une appli, une mélodie ou un vaisseau en briques.
+        </p>
+        <p>
+          Aujourd’hui, je suis <strong>responsable technique</strong> et <strong>co-fondateur</strong> de <a href="https://4h04.com">4h04</a>,
+          une société spécialisée dans le développement d’applications web, la maintenance technique et l’accompagnement digital.
+        </p>
+        <p>
+          Je me considère comme un <strong>artisan du web</strong> : j’aime comprendre les besoins, construire avec précision, et livrer des projets qui dureront. Chaque développement est pensé pour être <strong>maintenable, performant et accessible</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-linear-to-b from-secondary to-white border-t border-t-headline/50" aria-labelledby="expertiseTitle">
+    <div class="wrapper">
+      <div class="text-center mb-12">
+        <twig:Heading level="2" size="md" id="expertiseTitle">Expertises principales</twig:Heading>
+      </div>
+
+      <div class="auto-grid" style="--auto-grid-max-columns: 2; --auto-grid-min-size: 18rem; --auto-grid-gap: 1rem;">
+        <twig:Card>
+          <twig:Heading level="3" size="sm"><a href="{{ page_path('services_applications') }}" class="stretched-link">Symfony / Laravel / API Platform</a></twig:Heading>
+          <div class="prose">
+            <p>
+              Applications métiers, APIs, back-offices sur mesure, sécurité et performance.
+            </p>
+          </div>
+          <span class="inline-flex items-center gap-1 font-medium text-neutral-900 underline group-hover:no-underline">En savoir plus<twig:ux:icon name="lucide:arrow-right" class="size-4" /></span>
+        </twig:Card>
+        <twig:Card>
+          <twig:Heading level="3" size="sm"><a href="{{ page_path('services_wordpress') }}" class="stretched-link">WordPress</a></twig:Heading>
+          <div class="prose">
+            <p>
+              Thèmes sur mesure, blocs Gutenberg, Full Site Editing (FSE), et plugins personnalisés.
+            </p>
+          </div>
+          <span class="inline-flex items-center gap-1 font-medium text-neutral-900 underline group-hover:no-underline">En savoir plus<twig:ux:icon name="lucide:arrow-right" class="size-4" /></span>
+        </twig:Card>
+        <twig:Card>
+          <twig:Heading level="3" size="sm"><a href="{{ page_path('services_react') }}" class="stretched-link">React & React Native</a></twig:Heading>
+          <div class="prose">
+            <p>
+              Interfaces dynamiques, PWA et apps mobiles hybrides modernes.
+            </p>
+          </div>
+          <span class="inline-flex items-center gap-1 font-medium text-neutral-900 underline group-hover:no-underline">En savoir plus<twig:ux:icon name="lucide:arrow-right" class="size-4" /></span>
+        </twig:Card>
+        <twig:Card>
+          <twig:Heading level="3" size="sm"><a href="{{ page_path('services_integration') }}" class="stretched-link">Accessibilité</a></twig:Heading>
+          <div class="prose">
+            <p>
+              Respect des normes RGAA/WCAG, conception inclusive et éco-consciente.
+            </p>
+          </div>
+          <span class="inline-flex items-center gap-1 font-medium text-neutral-900 underline group-hover:no-underline">En savoir plus<twig:ux:icon name="lucide:arrow-right" class="size-4" /></span>
+        </twig:Card>
+        <twig:Card>
+          <twig:Heading level="3" size="sm"><a href="{{ page_path('services_maintenance') }}" class="stretched-link">Audit & optimisation</a></twig:Heading>
+          <div class="prose">
+            <p>
+              Amélioration de la performance, du SEO et de la sécurité applicative.
+            </p>
+          </div>
+          <span class="inline-flex items-center gap-1 font-medium text-neutral-900 underline group-hover:no-underline">En savoir plus<twig:ux:icon name="lucide:arrow-right" class="size-4" /></span>
+        </twig:Card>
+        <twig:Card>
+          <twig:Heading level="3" size="sm"><a href="{{ page_path('services_maintenance') }}" class="stretched-link">Maintenance & accompagnement</a></twig:Heading>
+          <div class="prose">
+            <p>
+              Reprises de projet, TMA et évolutions continues — via 4h04.
+            </p>
+          </div>
+          <span class="inline-flex items-center gap-1 font-medium text-neutral-900 underline group-hover:no-underline">En savoir plus<twig:ux:icon name="lucide:arrow-right" class="size-4" /></span>
+        </twig:Card>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 mb-8" aria-labelledby="parcoursTitle">
+    <div class="wrapper">
+      <div class="text-center mb-12">
+        <twig:Heading level="2" size="md" id="expertiseTitle">Parcours professionnel</twig:Heading>
+      </div>
+      <div class="relative border-l-2 border-neutral-200 pl-8 space-y-12 max-w-prose mx-auto">
+
+        <div class="relative">
+          <div class="absolute -left-11 top-1 w-5 h-5 bg-black rounded-full"></div>
+          <h3 class="font-semibold text-lg mb-1">Depuis 2016 — 4h04 (Poitiers)</h3>
+          <p class="text-neutral-700">Co-fondateur & responsable technique. Développement d’applications métiers, APIs et accompagnement technique.</p>
+          <p class="text-sm text-neutral-500 mt-1">Clients : MAIF, Caisse des Dépôts, Notariat, CrisBoat, Eaux de Vienne…</p>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -left-11 top-1 w-5 h-5 bg-black rounded-full"></div>
+          <h3 class="font-semibold text-lg mb-1">2010 – 2016 — Ines Interactive</h3>
+          <p class="text-neutral-700">Lead développeur web. Conception d’applications métiers et de sites e-commerce sur mesure.</p>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -left-11 top-1 w-5 h-5 bg-black rounded-full"></div>
+          <h3 class="font-semibold text-lg mb-1">2006 – 2010 — 2S3i</h3>
+          <p class="text-neutral-700">Intégrateur HTML/CSS puis développeur PHP/Symfony. Spécialisation en accessibilité web.</p>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -left-11 top-1 w-5 h-5 bg-black rounded-full"></div>
+          <h3 class="font-semibold text-lg mb-1">2004 – 2006 — Rectorat de Poitiers</h3>
+          <p class="text-neutral-700">Développeur PHP. Refonte du système de saisie des vœux post-bac — premiers projets métier.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrapper mb-24" aria-labelledby="techStackTitle">
+    <twig:TechStack title="Technologies utilisées">
+      <p class="leading-relaxed max-w-prose mx-auto text-center">
+        Un socle moderne, maîtrisé et adapté à chaque contexte.
+      </p>
+    </twig:TechStack>
+  </section>
+
+  <twig:Cta title="Envie qu'on travaille ensemble ?">
+    Vous cherchez un <strong>développeur expérimenté et fiable</strong> pour votre projet web&nbsp;?
+    Discutons-en ensemble.
+  </twig:Cta>
+
+{% endblock %}
+
+{% block og_type 'profile' %}
+
+{% block jsonld %}
+  {{ parent() }}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "name": "Matthieu Bozec",
+          "jobTitle": "Développeur web full-stack",
+          "url": "https://www.matthieubozec.fr/a-propos",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "4h04",
+            "url": "https://4h04.com"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/matthieubozec/",
+            "https://github.com/krachot"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Nouaillé-Maupertuis",
+            "addressRegion": "Vienne",
+            "postalCode": "86340",
+            "addressCountry": "FR"
+          },
+          "knowsAbout": [
+            "Symfony",
+            "Laravel",
+            "WordPress",
+            "React",
+            "API Platform",
+            "Accessibilité Web",
+            "SEO",
+            "PHP",
+            "Développement web Poitiers"
+          ],
+          "description": "Matthieu Bozec est un développeur web full-stack à Poitiers (Vienne 86), co-fondateur de 4h04. Expert en Symfony, WordPress et React, il conçoit des applications métiers et sites web accessibles et performants."
+        },
+        {
+          "@type": "Organization",
+          "name": "4h04",
+          "url": "https://4h04.com",
+          "founder": {
+            "@type": "Person",
+            "name": "Matthieu Bozec"
+          },
+          "sameAs": [
+            "https://4h04.com"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Nouaillé-Maupertuis",
+            "addressRegion": "Vienne",
+            "postalCode": "86340",
+            "addressCountry": "FR"
+          }
+        }
+      ]
+    }
+  </script>
+{% endblock %}

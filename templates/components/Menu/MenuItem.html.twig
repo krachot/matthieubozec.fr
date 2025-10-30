@@ -1,0 +1,30 @@
+<li class="{{ attributes.defaults({'class': 'max-md:w-full
+      [&>a]:transition[&>a]:text-black
+      max-md:[&>a[aria-current="page"]]:text-white
+      max-md:[&>a[aria-current="page"]]:bg-headline
+      max-md:[&>a[aria-current="page"]]:rounded-xl
+      max-md:[&>a[aria-current="page"]]:shadow-md
+
+  '}).render('class')|tailwind_merge }}"
+  {{ attributes.defaults({}).without('class') }}>
+  <a class="relative group flex flex-col items-center justify-center gap-2 gap-y-1 max-md:text-[9px] max-md:font-display px-0 py-2 rounded-lg transition-colors duration-200" href="{{ this.link }}" {{ this.isCurrentPage ? 'aria-current="page"' }}>
+    {% if this.icon|default(null) %}
+      <twig:ux:icon
+        name="{{ this.icon }}"
+        class="size-5 md:hidden shrink-0"
+      />
+    {% endif %}
+    <span
+      class="relative
+             md:after:content-[''] md:after:absolute md:after:left-1/2 md:after:-bottom-1
+             md:after:h-[2px] md:after:w-0 md:after:bg-highlight md:after:transition-all md:after:duration-300
+             md:group-hover:after:w-3/4 md:group-hover:after:-translate-x-1/2
+             md:group-aria-current:after:w-3/4
+             md:group-aria-current:after:-translate-x-1/2
+    "
+    >
+      {% block content '' %}
+    </span>
+
+  </a>
+</li>

@@ -1,0 +1,19 @@
+controllers:
+    resource:
+        path: ../src/Http/Controller/
+        namespace: App\Http\Controller
+    type: attribute
+
+robots_txt:
+    path: "/robots.txt"
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    format: 'txt'
+    defaults:
+        template: 'static/robots.txt.twig'
+
+well_known_webfinger:
+    path: '/.well-known/webfinger'
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    format: 'json'
+    defaults:
+        template: 'well_known/webfinger.json.twig'

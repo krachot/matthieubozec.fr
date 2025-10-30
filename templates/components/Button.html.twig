@@ -1,0 +1,29 @@
+{%- props variant = 'default', size = 'default', as = 'button' -%}
+{%- set style = html_cva(
+  base: 'relative inline-flex items-center font-bold justify-center gap-2 border border-transparent rounded-md whitespace-nowrap cursor-pointer pointer-events-auto text-center disabled:opacity-75 dark:disabled:opacity-75 disabled:cursor-default disabled:pointer-events-none ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2',
+  variants: {
+    variant: {
+      default: 'bg-neutral-900 text-white hover:bg-neutral-800 focus:ring-black',
+      outline: 'bg-white text-black border-black hover:bg-black hover:text-white',
+      destructive: 'border-2 border-black text-black hover:bg-black hover:text-white focus:ring-black',
+      link: 'bg-transparent text-black underline-offset-4 hover:underline px-0 py-0',
+      highlight: 'bg-highlight text-headline focus:ring-black hover:bg-highlight/80',
+      menu: 'bg-transparent text-black uppercase border-y-2 border-y-black rounded-none',
+      light: 'bg-white text-black font-medium hover:bg-neutral-200 transition'
+    },
+    size: {
+      default: 'h-10 px-4',
+      sm: 'h-8 text-sm px-3',
+      xs: 'h-6 text-xs px-2',
+      lg: 'h-12 px-6 rounded-lg',
+      icon: 'size-10',
+    },
+  },
+) -%}
+
+<{{ as }}
+class="{{ style.apply({variant: variant, size: size}, attributes.render('class'))|tailwind_merge }}"
+{{ attributes }}
+>
+{%- block content %}{% endblock -%}
+</{{ as }}>

@@ -1,0 +1,77 @@
+<footer id="footer" role="contentinfo" class="bg-headline border-t-10 border-t-tertiary text-white py-20 with-cta:-mt-[16rem] with-cta:pt-[16rem]">
+  <div class="wrapper grid lg:grid-cols-[1fr_1fr_12em] items-start gap-12">
+
+    <div>
+      <twig:Logo logo="logo-white" class="text-white mb-4" />
+      <p class="mb-6 leading-relaxed">
+        Développeur full stack spécialisé en Symfony, WordPress et React.<br>
+        Basé près de Poitiers, co-gérant de <a href="https://4h04.com" class="underline hover:text-white">4h04</a>.
+      </p>
+      <twig:Button as="a" variant="light" href="{{ path('contact') }}">
+        Me contacter
+      </twig:Button>
+    </div>
+
+    <div class="@container/footer-nav">
+      <h2 class="text-white font-semibold mb-4 text-base">Navigation</h2>
+      <nav class="gap-y-2" aria-label="Navigation secondaire">
+        <ul class="@md/footer-nav:columns-2 space-y-2 gap-6">
+          {% for node in flatten_navigation %}
+            <li><a href="{{ node.url }}" class="hover:text-white transition">{{ node.title }}</a></li>
+          {% endfor %}
+          <li><a href="{{ path('contact') }}" class="hover:text-white transition">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div>
+      <h2 class="text-white font-semibold mb-4 text-base" id="titleFollow">Me suivre</h2>
+      <ul role="list" class="flex flex-wrap gap-4 mb-8" aria-labelledby="titleFollow">
+        <li>
+          <a href="https://www.linkedin.com/in/matthieubozec/" class="hover:text-white transition block" target="_blank" rel="noopener noreferrer">
+            <twig:ux:icon name="simple-icons:linkedin" class="size-5" />
+            <span class="sr-only">LinkedIn</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://bsky.app/profile/krachot.bsky.social" class="hover:text-white transition block" target="_blank" rel="noopener noreferrer">
+            <twig:ux:icon name="simple-icons:bluesky" class="size-5" />
+            <span class="sr-only">Bluesky</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://piaille.fr/@krachot" class="hover:text-white transition block" target="_blank" rel="noopener noreferrer">
+            <twig:ux:icon name="simple-icons:mastodon" class="size-5" />
+            <span class="sr-only">Mastodon</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://x.com/krachot" class="hover:text-white transition block" target="_blank" rel="noopener noreferrer">
+            <twig:ux:icon name="simple-icons:x" class="size-5" />
+            <span class="sr-only">Twitter / X</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://instagram.com/krachot" class="hover:text-white transition block" target="_blank" rel="noopener noreferrer">
+            <twig:ux:icon name="simple-icons:instagram" class="size-5" />
+            <span class="sr-only">Instagram</span>
+          </a>
+        </li>
+      </ul>
+      <h2 class="text-white font-semibold mb-4 text-base" id="titleFollow">Colophon</h2>
+      <div class="text-sm  space-y-1">
+        <p>Propulsé par <strong>Symfony</strong>, déployé sur un VPS OVH et servi par <strong>Caddy</strong>.</p>
+        <p>Thème graphique conçu sur mesure. Icônes : <strong>Lucide</strong>.</p>
+        <p><a href="https://github.com/krachot/matthieubozec.fr" target="_blank" rel="noopener noreferer" class="underline inline-flex gap-1 items-center">
+            Code source sur GitHub <twig:ux:icon name="lucide:external-link" class="size-3" />
+          </a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <div class="border-t border-white/50 mt-16 pt-6 text-center text-white text-xs">
+      © {{ "now"|date("Y") }} Matthieu Bozec — Tous droits réservés.
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,81 @@
+{% props title = '' %}
+
+<section class="{{ attributes.defaults({'class': 'py-16 bg-linear-to-b from-secondary to-white border-t border-t-headline/50'}).render('class')|tailwind_merge }}" {{ attributes.defaults({}).without('class') }} aria-labelledby="serviceTitle">
+  <div class="wrapper">
+    <div class="text-center mb-12 space-y-4">
+      <twig:Heading level="2" size="md" id="serviceTitle"><a href="{{ page_path('services') }}">{{ title }}</a></twig:Heading>
+
+      {% block content '' %}
+    </div>
+
+    <div class="auto-grid" style="--auto-grid-max-columns: 2; --auto-grid-min-size: 18rem; --auto-grid-gap: 2rem;">
+      <twig:Card>
+        <twig:ux:icon name="lucide:app-window-mac" class="size-8 text-headline group-hover:scale-110 transition-transform" />
+        <twig:Heading level="3" size="sm"><a href="{{ page_path('services_applications') }}" class="stretched-link">Développement d’applications métiers</a></twig:Heading>
+        <div class="prose">
+          <p>
+            Applications web sur mesure, APIs, extranets et outils internes adaptés à vos besoins.
+          </p>
+          <p>
+            Des solutions robustes et évolutives construites avec <strong>Symfony</strong>, <strong>React</strong> ou <strong>Laravel</strong>.
+          </p>
+        </div>
+        <span class="inline-flex items-center gap-1 font-medium text-neutral-900 underline group-hover:no-underline">
+          En savoir plus
+          <twig:ux:icon name="lucide:arrow-right" class="size-4" />
+        </span>
+      </twig:Card>
+
+      <twig:Card>
+        <twig:ux:icon name="lucide:globe" class="size-8 text-headline group-hover:scale-110 transition-transform" />
+        <twig:Heading level="3" size="sm"><a href="{{ page_path('services_site') }}" class="stretched-link">Création de sites internet vitrine & e-commerce</a></twig:Heading>
+        <div class="prose">
+          <p>
+            Sites vitrines, institutionnels ou boutiques en ligne, performants et fiables.
+          </p>
+          <p>
+            Développés avec <strong>WordPress</strong>, <strong>Symfony</strong> ou <strong>PrestaShop</strong>.
+          </p>
+        </div>
+        <span class="inline-flex items-center gap-1 font-medium text-neutral-900 underline group-hover:no-underline">
+          En savoir plus
+          <twig:ux:icon name="lucide:arrow-right" class="size-4" />
+        </span>
+      </twig:Card>
+
+      <twig:Card>
+        <twig:ux:icon name="lucide:code" class="size-8 text-headline group-hover:scale-110 transition-transform" />
+        <twig:Heading level="3" size="sm"><a href="{{ page_path('services_integration') }}" class="stretched-link">Intégration web & accessibilité</a></twig:Heading>
+        <div class="prose">
+          <p>
+            Intégrations HTML, CSS et JavaScript précises, respectueuses des standards du web.
+          </p>
+          <p>
+            Performance, clarté et conformité <strong>RGAA/WCAG</strong> au cœur de chaque projet.
+          </p>
+        </div>
+        <span class="inline-flex items-center gap-1 font-medium text-neutral-900 underline group-hover:no-underline">
+          En savoir plus
+          <twig:ux:icon name="lucide:arrow-right" class="size-4" />
+        </span>
+      </twig:Card>
+
+      <twig:Card>
+        <twig:ux:icon name="lucide:wrench" class="size-8 text-headline group-hover:scale-110 transition-transform" />
+        <twig:Heading level="3" size="sm"><a href="{{ page_path('services_maintenance') }}" class="stretched-link">Reprise, maintenance & accompagnement technique</a></twig:Heading>
+        <div class="prose">
+          <p>
+            Reprise de projets existants, audits de sécurité, mises à jour et migrations techniques.
+          </p>
+          <p>Je vous aide à fiabiliser et à faire évoluer vos applications dans le temps.</p>
+        </div>
+        <span class="inline-flex items-center gap-1 font-medium text-neutral-900 underline group-hover:no-underline">
+          En savoir plus
+          <twig:ux:icon name="lucide:arrow-right" class="size-4" />
+        </span>
+      </twig:Card>
+
+    </div>
+
+  </div>
+</section>

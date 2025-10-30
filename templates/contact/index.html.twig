@@ -1,0 +1,128 @@
+{% extends "layout/default.html.twig" %}
+
+{% block title 'Contact – Matthieu Bozec / 4h04 | Développeur web à Poitiers (Vienne 86)' %}
+{% block meta_description 'Contactez Matthieu Bozec, développeur web full-stack à Poitiers (Vienne 86) et co-fondateur de 4h04. Symfony, WordPress, Laravel, React. Applications métiers, sites sur mesure, maintenance et accompagnement technique en Poitou-Charentes.' %}
+
+{% block og_image absolute_url(asset('build/images/og/contact.jpg')) %}
+
+{% block meta_canonical url('contact') %}
+
+{% block content %}
+    <div class="wrapper py-4 w-full">
+      <nav aria-label="Fil d'arianne">
+        <ol class="flex flex-wrap items-center gap-1 text-sm text-gray-600">
+          <li class="flex items-center gap-1"><a href="{{ page_path('index') }}" class="hover:text-gray-900 transition-colors">Accueil</a></li>
+          <li class="flex items-center gap-1"><twig:ux:icon name="lucide:chevron-right" class="size-4 text-gray-400" /><span class="text-gray-900 font-medium" aria-current="page">Contact</span></li>
+        </ol>
+      </nav>
+    </div>
+
+    <twig:Hero title="Contact" class="[&>div]:pt-2" :withCta="false">
+      <p class="font-display text-step-2 text-balance">
+        Une idée de projet, une application à faire évoluer, ou besoin d’un accompagnement technique&nbsp;?
+      </p>
+      <p class="font-sans text-step-0 text-black text-balance">
+        Tous les projets sont réalisés <strong>via <a href="https://4h04.com" class="underline hover:text-neutral-900" target="_blank" rel="noopener noreferer">4h04</a></strong>, l’entreprise que je co-gère à Poitiers.
+      </p>
+    </twig:Hero>
+
+    <div class="wrapper mb-24" aria-live="polite" aria-atomic="true">
+      <twig:Card id="contact-form-wrapper" data-controller="contact-form" class="max-md:contents">
+        {% if status|default(null) == 'success' %}
+          {{ include('contact/_success.html.twig') }}
+        {% endif %}
+        {% if status|default(null) == 'error' %}
+          {{ include('contact/_error.html.twig') }}
+        {% endif %}
+
+        {{ include('contact/_form.html.twig', {'form': form}) }}
+      </twig:Card>
+    </div>
+{% endblock %}
+
+{% block success_stream %}
+  <turbo-stream action="replace" target="contact-form-wrapper">
+    <template>
+      <twig:Card id="contact-form-wrapper" data-controller="contact-form" class="max-md:contents">
+        {{ include('contact/_success.html.twig') }}
+      </twig:Card>
+    </template>
+  </turbo-stream>
+{% endblock %}
+
+{% block error_stream %}
+  <turbo-stream action="replace" target="contact-form-wrapper">
+    <template>
+      <twig:Card id="contact-form-wrapper" data-controller="contact-form" class="max-md:contents">
+        {{ include('contact/_error.html.twig') }}
+        {{ include('contact/_form.html.twig', {'form': form}) }}
+      </twig:Card>
+    </template>
+  </turbo-stream>
+{% endblock %}
+
+
+{% block jsonld %}
+  {% set breadcrumbList = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': "Accueil",
+        'item': page_url('index')
+      },
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': "Contact",
+        'item': url('contact')
+      }
+    ]
+  } %}
+
+  <script type="application/ld+json">{{ breadcrumbList|json_encode(constant('JSON_UNESCAPED_UNICODE'))|raw }}</script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact – Matthieu Bozec / 4h04",
+      "url": "{{ url('contact') }}",
+      "mainEntity": {
+        "@type": "ProfessionalService",
+        "name": "Matthieu Bozec – Développeur web full-stack à Poitiers",
+        "url": "https://www.matthieubozec.fr",
+        "provider": {
+          "@type": "Organization",
+          "name": "4h04",
+          "url": "https://4h04.com"
+        },
+        "serviceType": "Développement web et applications sur mesure",
+        "description": "Développement Symfony, Laravel, WordPress et React. Conception d’applications métiers et sites internet performants. Maintenance et accompagnement technique via 4h04.",
+        "areaServed": ["Poitiers", "Vienne", "Poitou-Charentes", "Nouvelle-Aquitaine"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Nouaillé-Maupertuis",
+          "addressRegion": "Vienne",
+          "postalCode": "86340",
+          "addressCountry": "FR"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Service commercial et technique",
+          "email": "contact@4h04.com",
+          "availableLanguage": ["fr"],
+          "areaServed": "FR"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/matthieubozec",
+          "https://github.com/krachot",
+          "https://4h04.com"
+        ]
+      }
+    }
+  </script>
+
+{% endblock %}

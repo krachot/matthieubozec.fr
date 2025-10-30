@@ -1,0 +1,219 @@
+{% use 'form_div_layout.html.twig' %}
+
+{# Widgets #}
+
+{%- block form_widget_simple -%}
+  {%- set type = type|default('text') -%}
+  {%- if type == 'hidden' -%}
+    {{- parent() -}}
+  {%- else -%}
+    {%- set attr_class = attr_class|default(block('class_input_text')) -%}
+    {%- set attr = attr|merge({'class': (attr_class ~ ' ' ~ attr.class|default(''))|trim}) -%}
+    {{- parent() -}}
+  {%- endif -%}
+{%- endblock form_widget_simple -%}
+
+{%- block textarea_widget -%}
+  {%- set attr_class = attr_class|default(block('class_textarea')) -%}
+  {%- set attr = attr|merge({'class': (attr_class ~ ' ' ~ attr.class|default(''))|trim}) -%}
+  {{- parent() -}}
+{%- endblock textarea_widget -%}
+
+{%- block choice_widget_expanded -%}
+  {%- set attr_class = attr_class|default(block('class_choice_widget_expanded')) -%}
+  {%- set attr = attr|merge({'class': (attr_class ~ ' ' ~ attr.class|default(''))|trim}) -%}
+  {{- parent() -}}
+{%- endblock choice_widget_expanded -%}
+
+{%- block choice_widget_collapsed -%}
+  {%- set attr_class = attr_class|default(block('class_select')) -%}
+  {%- set attr = attr|merge({'class': (attr_class ~ ' ' ~ attr.class|default(''))|trim}) -%}
+  {{- parent() -}}
+{%- endblock choice_widget_collapsed -%}
+
+{%- block checkbox_widget -%}
+  {%- set attr_class = attr_class|default(block('class_input_checkbox')) -%}
+  {%- set attr = attr|merge({'class': (attr_class ~ ' ' ~ attr.class|default(''))|trim}) -%}
+  {{- form_label(form, null, { widget: parent() }) -}}
+{%- endblock checkbox_widget -%}
+
+{%- block radio_widget -%}
+  {%- set attr_class = attr_class|default(block('class_input_radio')) -%}
+  {%- set attr = attr|merge({'class': (attr_class ~ ' ' ~ attr.class|default(''))|trim}) -%}
+  {{- form_label(form, null, { widget: parent() }) -}}
+{%- endblock radio_widget -%}
+
+{# Labels #}
+
+{%- block form_label -%}
+  {% if label is not same as(false) -%}
+    {%- set label_attr_class = block('class_label') ~ ' ' ~ label_attr.class|default('') -%}
+    {%- set label_attr = label_attr|merge({'class': label_attr_class|trim|tailwind_merge}) -%}
+    {%- if not valid -%}
+      {%- set label_attr = label_attr|merge({'data-error': 'true'}) -%}
+    {%- endif -%}
+    {%- if compound is defined and compound -%}
+      {%- set element = 'legend' -%}
+    {% endif %}
+    {% if not compound -%}
+      {% set label_attr = label_attr|merge({'for': id}) %}
+    {%- endif -%}
+    {% if required -%}
+      {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+    {%- endif -%}
+    <{{ element|default('label') }}{% with { attr: label_attr } %}{{ block('attributes') }}{% endwith %}>
+    {{- block('form_label_content') -}}
+    </{{ element|default('label') }}>
+  {%- endif -%}
+{%- endblock form_label -%}
+
+{%- block checkbox_radio_label -%}
+  {#- Do not display the label if widget is not defined in order to prevent double label rendering -#}
+  {%- if widget is defined -%}
+    {%- if checked and form.parent.vars.valid == false -%}
+      {%- set valid = false -%}
+    {%- endif -%}
+
+    {%- set row_attr_class = block('class_checkbox_radio_label_row') ~ ' ' ~ row_attr.class|default('') -%}
+    {%- set row_attr = row_attr|merge({'class': row_attr_class|trim|tailwind_merge}) -%}
+
+    {%- set label_attr_class = block('class_checkbox_radio_label') ~ ' ' ~ label_attr.class|default('') -%}
+    {%- set label_attr = label_attr|merge({'class': label_attr_class|trim|tailwind_merge}) -%}
+    {%- if not compound -%}
+      {% set label_attr = label_attr|merge({'for': id}) %}
+    {%- endif -%}
+    <div{% with { attr: row_attr } %}{{ block('attributes') }}{% endwith %}>
+      {{ widget|raw }}
+      <label{% with { attr: label_attr } %}{{ block('attributes') }}{% endwith %}>
+        {%- if label is not same as(false) -%}
+          {{- block('form_label_content') -}}
+        {%- endif -%}
+      </label>
+    </div>
+  {%- endif -%}
+{%- endblock checkbox_radio_label %}
+
+{% block checkbox_label -%}
+  {{- block('checkbox_radio_label') -}}
+{%- endblock checkbox_label %}
+
+{% block radio_label -%}
+  {{- block('checkbox_radio_label') -}}
+{%- endblock radio_label %}
+
+{# Help #}
+
+{% block form_help -%}
+  {%- if help is not empty -%}
+    {%- set help_attr_class = (block('class_help_text') ~ ' '~ help_attr.class|default(''))|trim -%}
+    {%- set help_attr = help_attr|merge({'class': help_attr_class}) -%}
+    <p id="{{ id }}_help"{% with { attr: help_attr } %}{{ block('attributes') }}{% endwith %}>
+      {{- block('form_help_content') -}}
+    </p>
+  {%- endif -%}
+{%- endblock form_help %}
+
+{# Rows #}
+
+{%- block form_row -%}
+  {%- if compound is defined and compound -%}
+    {%- set element = 'fieldset' -%}
+  {%- endif -%}
+  {%- set row_attr_class = row_attr_class|default(block('class_form_row')) -%}
+  {%- set row_attr = row_attr|merge({'class': (row_attr_class ~ ' ' ~ row_attr.class|default(''))|trim}) -%}
+  {%- if not (valid ?? true) -%}
+    {%- set row_attr = row_attr|merge({'data-error': 'true'}) -%}
+  {%- endif -%}
+  {%- if disabled ?? false %}
+    {%- set row_attr = row_attr|merge({'data-disabled': 'true'}) -%}
+  {%- endif -%}
+  {%- set widget_attr = {} -%}
+  {%- if help is not empty -%}
+    {%- set widget_attr = {attr: {'aria-describedby': id ~"_help"}} -%}
+  {%- endif -%}
+  <{{ element|default('div') }}{% with {attr: row_attr} %}{{ block('attributes') }}{% endwith %}>
+    {{- form_label(form) -}}
+    {{- form_widget(form, widget_attr) -}}
+    {{- form_errors(form) -}}
+    {{- form_help(form) -}}
+  </{{ element|default('div') }}>
+{%- endblock form_row -%}
+
+{# Support #}
+
+{%- block widget_attributes -%}
+  {%- if not valid %}
+    {%- set attr = attr|merge({'aria-invalid': 'true'}) -%}
+  {% endif -%}
+  {%- if errors|length > 0 -%}
+    {% set aria_describedby_ids = '' %}
+    {%- for key, error in errors -%}
+      {% set aria_describedby_ids = aria_describedby_ids ~ ' ' ~ (id ~ '_error_' ~ key) %}
+    {%- endfor -%}
+    {%- set attr = attr|merge({'aria-describedby': aria_describedby_ids|trim}) -%}
+  {%- endif -%}
+  {{ parent() }}
+{%- endblock widget_attributes -%}
+
+{# Misc #}
+
+{%- block form_errors -%}
+  {%- if errors|length > 0 -%}
+    <div class="relative w-full [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-3 rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-red-800 [&>svg]:red-800">
+      <twig:ux:icon name="lucide:circle-alert" class="size-5 leading-[1lh]" />
+      {%- for key, error in errors -%}
+        <p id="{{ id }}_error_{{ key }}" class="{{ block('class_text_error') }}">{{ error.message }}</p>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+{%- endblock form_errors -%}
+
+{# Class #}
+
+{% block class_label -%}
+  flex items-center gap-2 leading-none font-medium text-headline select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 data-[error=true]:text-destructive
+{%- endblock class_label %}
+
+{% block class_input_text -%}
+  file:text-foreground placeholder:text-headline/60 selection:bg-tertiary selection:text-black flex h-10 w-full min-w-0 rounded border border-headline/50 bg-transparent px-3 py-2 text-base transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 focus-visible:border-ring focus-visible:ring-headline/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 aria-invalid:border-destructive
+{%- endblock class_input_text %}
+
+{% block class_input_radio -%}
+  border-input text-black focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 aria-invalid:border-destructive aspect-square size-4 shrink-0 rounded-full border shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 inline-block align-middle accent-black
+{%- endblock class_input_radio %}
+
+{% block class_input_checkbox -%}
+  peer border-input focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 inline-block align-middle accent-black
+{%- endblock class_input_checkbox %}
+
+{% block class_checkbox_radio_label_row -%}
+  flex items-center gap-2
+{%- endblock class_checkbox_radio_label_row %}
+
+{% block class_checkbox_radio_label -%}
+  {{ block('class_label') }}
+{%- endblock class_checkbox_radio_label %}
+
+{% block class_select -%}
+  {{ block('class_input_text') }}
+{%- endblock class_select %}
+
+{% block class_textarea -%}
+  border-headline/50 placeholder:text-headline/60 focus-visible:border-ring focus-visible:ring-headline/50 aria-invalid:ring-destructive/20 aria-invalid:border-destructive flex field-sizing-content min-h-25 w-full rounded border bg-transparent px-3 py-2 transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50
+{%- endblock class_textarea %}
+
+{% block class_form_row -%}
+  grid grid-cols-1 gap-2 group [&>legend]:mb-3 [&>legend]:font-semibold
+{%- endblock class_form_row %}
+
+{% block class_choice_widget_expanded -%}
+  grid grid-cols-1 gap-3 group/choice-widget-expanded
+{%- endblock class_choice_widget_expanded %}
+
+{% block class_help_text -%}
+  mt-2 text-headline/60 text-xs
+{%- endblock class_help_text %}
+
+{% block class_text_error -%}
+  text-red-800
+{%- endblock class_text_error %}

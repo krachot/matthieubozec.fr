@@ -1,0 +1,135 @@
+---
+layout: 'default'
+title: 'Développement web, applications & sites internet à Poitiers (Vienne 86)'
+permalink: 'services'
+featuredImage: 'services-1.png'
+og:
+  title: 'Services – Développement web, applications & sites internet'
+navigation:
+  label: Services
+  order: 2
+  icon: "lucide:monitor-smartphone"
+seo:
+  description: 'Découvrez les services de Matthieu Bozec, développeur web full-stack à Poitiers (Vienne 86) et co-fondateur de 4h04 : développement d’applications métiers, création de sites WordPress & e-commerce, intégration web & accessibilité, maintenance et accompagnement technique.'
+---
+
+{% block content %}
+  <twig:Hero title="Services" imagePath="{{ page.get('featuredImage') }}">
+    <p class="font-display text-step-2 text-balance">
+      Vous cherchez un <strong>développeur expérimenté</strong> pour votre projet web, applicatif ou technique&nbsp;?
+    </p>
+    <p class="font-sans text-step-0 text-black text-balance">
+      Basé près de <strong>Poitiers</strong>, je conçois et développe des projets robustes, accessibles et durables.
+    </p>
+  </twig:Hero>
+
+  <twig:Services title="Découvrez mes services" />
+
+  <section class="bg-white py-20" aria-labelledby="valeurTitle">
+    <div class="wrapper">
+      <div class="space-y-6 text-center mb-8">
+        <twig:Heading level="2" size="md" id="valeurTitle">Pourquoi me confier votre projet&nbsp;?</twig:Heading>
+        <p class="mx-auto">
+          Au-delà de la technique, chaque projet est conçu dans la durée :
+        </p>
+      </div>
+      <ul role="list" class="auto-grid" style="--auto-grid-max-columns: 4; --auto-grid-min-size: 18rem; --auto-grid-gap: 1rem;">
+        <twig:FeatureBox as="li" title="Code maintenable" text="Architecture claire et évolutive." />
+        <twig:FeatureBox as="li" title="Accessibilité intégrée" text="Respect des normes RGAA/WCAG." />
+        <twig:FeatureBox as="li" title="Performance & sécurité" text="Tests et audits techniques." />
+        <twig:FeatureBox as="li" title="Proximité" text="Un interlocuteur unique basé à Poitiers." />
+      </ul>
+    </div>
+  </section>
+
+  <section class="wrapper" aria-labelledby="techStackTitle">
+    <twig:TechStack title="Technologies utilisées">
+      <p class="leading-relaxed max-w-prose mx-auto text-center">
+        Un socle moderne, maîtrisé et adapté à chaque contexte.
+      </p>
+    </twig:TechStack>
+  </section>
+
+  <twig:Cta title="Un projet web en tête ?">
+    Que vous ayez besoin d’une application métier, d’un site web ou d’un accompagnement technique,
+    je peux vous aider à concrétiser votre projet.
+  </twig:Cta>
+{% endblock %}
+
+{% block jsonld %}
+  {{ parent() }}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ServiceCatalog",
+      "name": "Services – Développement web à Poitiers",
+      "url": "https://www.matthieubozec.fr/services",
+      "provider": {
+        "@type": "Person",
+        "name": "Matthieu Bozec",
+        "url": "https://www.matthieubozec.fr",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "4h04",
+          "url": "https://4h04.com"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Nouaillé-Maupertuis",
+          "addressRegion": "Vienne",
+          "postalCode": "86340",
+          "addressCountry": "FR"
+        }
+      },
+      "serviceType": "Développement web et applications",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Catalogue de services web",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Développement d’applications métiers",
+              "description": "Conception et développement d’applications web sur mesure, APIs, extranets et outils internes avec Symfony, Laravel et React.",
+              "url": "{{ page_url('services_applications') }}"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Création de sites internet vitrine et e-commerce",
+              "description": "Sites vitrines, institutionnels et boutiques en ligne avec WordPress ou PrestaShop. Thèmes et modules sur mesure.",
+              "url": "{{ page_url('services_site') }}"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Intégration web & accessibilité",
+              "description": "Intégrations HTML, CSS et JavaScript précises, conformes aux standards et aux critères RGAA/WCAG.",
+              "url": "{{ page_url('services_integration') }}"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Reprise, maintenance & accompagnement technique",
+              "description": "Audit, migration et maintenance évolutive de sites ou d’applications existantes, via 4h04.",
+              "url": "{{ page_url('services_maintenance') }}"
+            }
+          }
+        ]
+      },
+      "areaServed": [
+        "Poitiers",
+        "Vienne",
+        "Poitou-Charentes",
+        "Nouvelle-Aquitaine"
+      ]
+    }
+  </script>
+{% endblock %}

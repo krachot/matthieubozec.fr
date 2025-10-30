@@ -1,0 +1,8 @@
+{% props question = '' %}
+<details class="{{ attributes.defaults({'class': 'border-b border-headline/20 py-6 group'}).render('class')|tailwind_merge }}" {{ attributes }}>
+  <summary class="flex justify-between items-center cursor-pointer text-step-0 font-medium ">
+    <span class="inline-block max-w-prose">{{ question|raw }}</span>
+    <twig:ux:icon name="lucide:chevron-down" class="ms-4 size-5 text-neutral-500 transition-transform duration-300 group-open:rotate-180" />
+  </summary>
+  <p class="mt-4 leading-relaxed">{% block content %}{% endblock %}</p>
+</details>

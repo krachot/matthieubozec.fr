@@ -1,0 +1,4 @@
+<div class="{{ attributes.defaults({'class': 'relative group bg-white p-8 rounded-md border-2 border-headline/30 outline-0 outline-headline outline-offset-0 has-[a]:transform-gpu has-[a]:will-change-transform has-[a]:hover:border-headline has-[a]:hover:ring has-[a]:hover:ring-headline transition-all transition-ease-out duration-250 has-[a]:hover:-translate-y-[5px] space-y-4'}).render('class')|tailwind_merge }}"
+     {{ attributes.defaults({'href': page_path('index')}).without('class') }}>
+  {% block content '' %}
+</div>
