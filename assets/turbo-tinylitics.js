@@ -3,10 +3,16 @@
     const SCRIPT_URL = `https://tinylytics.app/embed/${SITE_CODE}/min.js?spa`;
 
     function initTinylyticsTurbo() {
+        let isFirstLoad = true;
+
         if (window.tinylytics?.triggerUpdate) {
             // On écoute les changements de page Turbo
             document.addEventListener("turbo:load", () => {
-                window.tinylytics.triggerUpdate();
+                if (!isFirstLoad) {
+                    window.tinylytics.triggerUpdate();
+                }
+
+                isFirstLoad = false;
             });
         } else {
             // Si Tinylytics n’est pas encore chargé, on retente un peu plus tard
@@ -15,6 +21,8 @@
     }
 
     function loadTinylytics() {
+        if (document.body.dataset.debug) return;
+
         // Empêche le double chargement
         if (window.tinylyticsLoaded) return;
         window.tinylyticsLoaded = true;
