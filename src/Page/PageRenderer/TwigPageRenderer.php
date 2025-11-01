@@ -42,7 +42,6 @@ class TwigPageRenderer implements PageRendererInterface
                     continue;
                 }
 
-
                 $imagePath = $this->cache->getBrowserPath($urlImagePath, 'image_'.$size);
                 $linkProvider = $linkProvider->withLink(
                     new Link('preload', $imagePath)
@@ -57,6 +56,7 @@ class TwigPageRenderer implements PageRendererInterface
 
         $response = new Response($this->twig->render((string) $page, ['page' => $page]));
         $response->setLastModified($page->lastModified());
+        $response->setPublic();
 
         return $response;
     }
