@@ -2,7 +2,6 @@
 
 ![PHP](https://img.shields.io/badge/PHP-8.4-green)
 ![Symfony](https://img.shields.io/badge/Symfony-7.3-green)
-![Tests](https://github.com/krachot/matthieubozec.fr/actions/workflows/tests.yml/badge.svg?branch=main)
 ![Deploy Status](https://github.com/krachot/matthieubozec.fr/actions/workflows/deploy.yml/badge.svg?branch=main)
 
 Shield: [![CC BY-NC 4.0][cc-by-nc-shield]][cc-by-nc]
