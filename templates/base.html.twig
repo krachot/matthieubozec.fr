@@ -36,6 +36,20 @@
   {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
   {% endblock %}
+
+  {% if not app.debug %}
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRNGW027ER"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-MRNGW027ER');
+    </script>
+
+  {% endif %}
 </head>
 <body class="flex min-h-screen flex-col justify-start bg-white" {{ app.debug ? 'data-debug="true"' }}>
 {% block jsonld '' %}
