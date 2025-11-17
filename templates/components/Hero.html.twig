@@ -1,6 +1,6 @@
 {% props title = null, imagePath = null, withCta = true %}
 
-<section class="{{ attributes.defaults({'class': 'wrapper @container/hero'}).render('class')|tailwind_merge }}"
+<section class="hero {{ attributes.defaults({'class': 'wrapper @container/hero'}).render('class')|tailwind_merge }}"
          {{ attributes.defaults({}).without('class') }} aria-labelledby="heroTitle">
   <div class="pt-6 pb-14 @2xl:py-14 {{ imagePath ? 'flex flex-col-reverse gap-y-6 @2xl:grid @2xl:gap-2 @2xl:grid-cols-[minmax(0,_1fr)_33cqw]' }}">
     <div class="text-headline space-y-6">

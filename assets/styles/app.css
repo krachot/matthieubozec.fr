@@ -3,6 +3,7 @@
 @import "./base.css" layer(base);
 @import "./drawer.css" layer(components);
 @import "./grid.css" layer(components);
+@import "./hero.css" layer(components);
 @import "./misc.css" layer(components);
 @import "./variants.css";
 

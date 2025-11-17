@@ -1,0 +1,26 @@
+.hero {
+    position: relative;
+
+    &::after {
+        background: linear-gradient(0deg,#e8e8e8 1px,#0000 0),linear-gradient(90deg,#e8e8e8 1px,#0000 0),linear-gradient(0deg,rgba(0,0,0,.038) 1px,#0000 0),linear-gradient(90deg,rgba(0,0,0,.038) 1px,#0000 0),#fff;
+        background-position-x: 0%, 0%, 0%, 0%, 0%;
+        background-position-y: 0%, 0%, 0%, 0%, 0%;
+        background-clip: initial;
+        background-origin: initial;
+        background-position: -1px -1px,-1px -1px,-1px -1px,-1px -1px;
+        background-size: 80px 80px,80px 80px,20px 20px,20px 20px;
+        border: none;
+        content: "";
+        display: block;
+        mask: linear-gradient(#0000,#000 30% 60%,#0000),linear-gradient(90deg,#0000 0,#000 10% 90%,#0000);
+        mask-position-x: 0%, 0%;
+        mask-position-y: 0%, 0%;
+        mask-composite: intersect;
+        mask-position: center;
+        mask-repeat: no-repeat;
+        mask-size: 100% 100%;
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+    }
+}
