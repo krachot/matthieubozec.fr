@@ -21,13 +21,10 @@
       <p class="font-display text-step-2 text-balance">
         Une idée de projet, une application à faire évoluer, ou besoin d’un accompagnement technique&nbsp;?
       </p>
-      <p class="font-sans text-step-0 text-black text-balance">
-        Tous les projets sont réalisés <strong>via <a href="https://4h04.com" class="underline hover:text-neutral-900" target="_blank" rel="noopener noreferer">4h04</a></strong>, l’entreprise que je co-gère à Poitiers.
-      </p>
     </twig:Hero>
 
     <div class="wrapper mb-24" aria-live="polite" aria-atomic="true">
-      <twig:Card id="contact-form-wrapper" data-controller="contact-form" class="max-md:contents">
+      <twig:Card id="contact-form-wrapper" data-controller="contact-form" class="contents">
         {% if status|default(null) == 'success' %}
           {{ include('contact/_success.html.twig') }}
         {% endif %}
@@ -43,7 +40,7 @@
 {% block success_stream %}
   <turbo-stream action="replace" target="contact-form-wrapper">
     <template>
-      <twig:Card id="contact-form-wrapper" data-controller="contact-form" class="max-md:contents">
+      <twig:Card id="contact-form-wrapper" data-controller="contact-form" class="contents">
         {{ include('contact/_success.html.twig') }}
       </twig:Card>
     </template>
@@ -53,7 +50,7 @@
 {% block error_stream %}
   <turbo-stream action="replace" target="contact-form-wrapper">
     <template>
-      <twig:Card id="contact-form-wrapper" data-controller="contact-form" class="max-md:contents">
+      <twig:Card id="contact-form-wrapper" data-controller="contact-form" class="contents">
         {{ include('contact/_error.html.twig') }}
         {{ include('contact/_form.html.twig', {'form': form}) }}
       </twig:Card>
